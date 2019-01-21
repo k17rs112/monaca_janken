@@ -55,8 +55,12 @@
       function mode(player_mode){
         if(player_mode == slave){
           comp_mode = emperor;
+          $("#gu()").css("display", "inline");
+          $("#choki()").css("display", "inline");
         } else {
           comp_mode = slave;
+          $("#choki()").css("display", "inline");
+          $("#pa()").css("display", "inline");
         }
         
       }
@@ -120,8 +124,10 @@
         });
   
         win_num = 0;
-        // ハンドボタン表示
-        $(".hand").css("display", "inline");
+        // モードボタン表示
+        $(".mode").css("display", "inline");
+        // ハンドボタン非表示
+        $(".hand").css("display", "none");
         // ニューゲームボタン非表示
         $("#newgame").css("display", "none");
         $("#result").html("じゃんけん・・・ぽん")
@@ -166,6 +172,8 @@
   <h1 class="text-white bg-primary">E-CARD</h1>
   <div id="highscore" class="text-white bg-secondary"></div>
   <div class="mx-auto" style="width: 2000px">
+    <a onclick="slave();" class="btn btn-outline-primary mode" role="button">slave</a>
+    <a onclick="emperor();" class="btn btn-outline-primary mode" role="button">emperor</a>
     <a onclick="gu();" class="btn btn-outline-primary hand" role="button">citizen</a>
     <a onclick="choki();" class="btn btn-outline-primary hand" role="button">slave</a>
     <a onclick="pa();" class="btn btn-outline-primary hand" role="button">emperor</a>
